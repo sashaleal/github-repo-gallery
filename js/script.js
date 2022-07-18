@@ -20,7 +20,7 @@ gitUserInfo();
 const displayUserInfo = function (data) {
   const div = document.createElement("div");
   div.classList.add("user-info");
-  div.innerHTML=`
+  div.innerHTML = `
     <figure>
       <img alt="user avatar" src=${data.avatar_url} />
     </figure>
@@ -90,25 +90,3 @@ const displayRepoInfo = function (repoInfo, languages) {
   `;
   repoData.append(div);
 };
-
-viewReposButton.addEventListener("", function (){
-  allReposContainer.classList.remove("hide");
-  repoData.classList.add("hide");
-  viewReposButton.classList.add("hide");
-});
-
-//Add an Input Event to the Search Box
-filterInput.addEventListener("input", function (e) {
-  const searchText = e.target.value;
-  const repos = document.querySelectorAll(".repo");
-  const searchLowerText = searchText.toLowerCase();
-  //Number 4
-  for (const repo of repos) {
-    const repoLowerText = repo.innerText.toLowerCase();
-    if (repoLowerText.includes(searchLowerText)) {
-      repo.classList.remove("hide");
-    } else {
-      repo.classList.add("hide");
-    }
-  }
-});
